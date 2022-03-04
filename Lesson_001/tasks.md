@@ -16,7 +16,7 @@ Open /js/kwm.js and create a Translator-Class (KWM_Translator).
       1. The first given language should serve as the default current language.
    4. A new Translator-Object should be invocable by the following command:
       ```
-      let translator = new KWM_Translator(["de", "en", "ru"]);
+      let translator = new KWM_Translator("de", "en", "ru");
       ```
    5. Find a way to store your Resource Strings in a way the translator can access and connect them to its members.
    
@@ -35,7 +35,7 @@ Open /js/kwm.js and create a Translator-Class (KWM_Translator).
             it_is_me: "It's me",
         },
         "ru": {
-            hello_world: "Здравствуйте мир"
+            hello_world: "Здравствуйте мир",
             it_is_me: "Это я",
         }
       };
@@ -58,7 +58,36 @@ Open /js/kwm.js and create a Translator-Class (KWM_Translator).
       </article>
       ```
       </details>
-   6. Don't forget to care for exceptions. What happens if you try to translate a key while lacking an according Resource String in the current language?
+   6. Write a method **translate(key, language=this.currentLanguage)** that returns the value for the key in the given (or default) language.
+   7. Don't forget to care for exceptions. What happens if you try to translate a key while lacking an according Resource String in the current language (The first Bonus-Task might be of help here 😎)?
+      
+<details>
+<summary>Test-Example</summary>
+
+Given function-call:
+   ```
+   let translator = new KWM_Translator("de", "en", "ru");
+   
+   console.log(translator.translate("hello_world"));
+   console.log(translator.translate("it_is_me", "en"));
+   
+   translator.currentLanguage = "ru";
+   
+   console.log(translator.translate("hello_world"));
+   console.log(translator.translate("non_existing_key", "en"));
+   ```
+
+Wanted result on console:
+   ```
+   Hallo Welt
+   It's me
+   Здравствуйте мир
+   --Missing translation: non_existing_key--
+   ```
+
+</details>
+
+8. Enjoy the Cake 🍰!
 </details>
 <details>
      <summary>2. Template Engine (55)</summary>
@@ -66,8 +95,8 @@ Open /js/kwm.js and create a Translator-Class (KWM_Translator).
 ###Develop the functionality of a Template Engine, in order to render Templates dynamically.
 
 1. You can - for now - keep working in /js/kwm.js
-2. Write a function that receives a **template**, a **container** and an [optional array](https://flexiple.com/optional-parameter-javascript/) **values** as parameters.
-   1. The template-argument is a string that contains HTML-Markup. Within this string there can be tags like "<%>" and "<&>".
+2. Write a function renderTemplate() that receives a **template**, a **container** and an [optional object](https://flexiple.com/optional-parameter-javascript/) **values** as parameters.
+   1. The template-argument is a string that contains HTML-Markup. Within this string, there can be tags like "<%>" and "<&>".
       1. A word within two <%>-tags is a key for translation.
       2. A word within two <&>-tags is a key for dynamic data.
       Example:
@@ -77,29 +106,26 @@ Open /js/kwm.js and create a Translator-Class (KWM_Translator).
           </article>
           ```
    2. The container-argument is an actual DOM-Element. This specifies, where the template should be rendered into.
-   3. The values-array (optional) contains data, that is meant to be inserted into the <&>-reserved spaces.
+   3. The values-object (optional) contains data in key-value-pairs, that is meant to be inserted into the <&>-reserved spaces.
 3. Your function renderTemplate() parses through the characters of the template until it finds the occurrence of either "<%>" or "<&>".
    1. Finding this pattern for the first time means, that it is an opening-tag (for either language, or data).
    2. Keep on searching for the second occurrence of the same tag.
    3. Congratulations. You have found the first opening- and closing-tag pair of either a translation- or data-placeholder.
    4. Now replace the content between those two tags with...
       1. A proper translation from your **Translation-Engine** in the current set language for <%>-tags.
-      2. Data from your **values** array for <&>-tags (you may use the first entry of the array for the first pair of <&> tags, and the second entry for the second pair etc.).
+      2. Data from your **values** object for <&>-tags.
+   5. In order to search for patterns in a String in JS, you can use [Regular Expressions (regex)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions). There are [nice free regex tools](https://regex101.com) available for more convenience. Use the [JavaScript exec() function](https://www.educba.com/javascript-exec/) to search for <u>the index of</u> a given regex within a String.
+   6. Use your profound <u>substringing-skills</u>, to isolate the placeholders.
+   7. In order to replace the placeholders in the template, you can use the [JavaScript replace() function](https://www.w3schools.com/jsref/jsref_replace.asp).
 4. When you are done parsing through the whole template and replacing placeholders, paste the result into the container (overwride anything that was inside before).
-5. Finish your function by dispatching an Event, telling the whole world that you did your job properly. 
-   ```
-   window.dispatchEvent(new CustomEvent("templateRendered"));
-   ```
-6. Enjoy your Cake 🍰!
-    
 <details>
-<summary>Example</summary>
+<summary>Test-Example</summary>
     
 Given function-call:
    ```
    const template = "<p><%>my_name_is<%> <&>my_name<&>.</p><p><%>age<%>: <&>my_age<&></p>";
    const container = document.getElementById("target_for_template"); //You can find this container in your index.html
-   const values = ["Ronald McDonald", 45]; //Feel free to change this values to your personal credentials.
+   const values = {my_name: "Ronald McDonald", my_age: 45}; //Feel free to change this values to your personal credentials.
    
    renderTemplate(template, container, values);
   ```
@@ -111,8 +137,11 @@ Wanted result on the front-page (depending on current language):
        <p>Alter: 45</p>
    </article>
   ```
+
+Don't forget to extend your Resources!
 </details>
 
+5. Enjoy the Cake 🍰!
 </details>
 <details>
 <summary>3. Bonus: Useful JS-Functions (10)</summary>

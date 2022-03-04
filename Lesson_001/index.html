@@ -5,19 +5,7 @@
     <meta lang="en">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
-    <!--<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *; img-src * data:;" />-->
-
-    <!-- Good default declaration:
-    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-        * Enable inline JS: add 'unsafe-inline' to default-src
-        * Enable eval(): add 'unsafe-eval' to default-src
-    * Create your own at http://cspisawesome.com
-    -->
-    <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" />-->
-    <link rel="stylesheet" type="text/css" href="/styles/style.css?v=0.1" />
+    <link rel="stylesheet" type="text/css" href="styles/style.css?v=0.1" />
     <title>kwmJS Boilerplate v0.1</title>
 </head>
 <body>
@@ -26,6 +14,6 @@
         <p>I am a cute little paragraph. Once you solved templating, I will die and for ever be gone :}.</p>
     </article>
 </main>
-<script type="module" src="/js/kwm.js?v=0.1"></script>
+<script type="module" src="js/kwm.js?v=0.1"></script>
 </body>
 </html>
