@@ -1,4 +1,5 @@
-#CWP4 - Lesson_001
+# CWP4 - Lesson_001
+
     Prerequisites:
       - JS-Basics
       - JS-Classes (ES6)
@@ -7,7 +8,7 @@
 <details>
     <summary>1. Translation Engine (45)</summary>
 
-###Develop the functionality of a Translation Engine, in order to translate Text in at least two languages.
+### Develop the functionality of a Translation Engine, in order to translate Text in at least two languages.
 
 Open /js/kwm.js and create a Translator-Class (KWM_Translator). 
    1. In the constructor, expect multiple languages as the only parameter [(Spread Syntax)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax).
@@ -92,7 +93,7 @@ Wanted result on console:
 <details>
      <summary>2. Template Engine (55)</summary>
 
-###Develop the functionality of a Template Engine, in order to render Templates dynamically.
+### Develop the functionality of a Template Engine, in order to render Templates dynamically.
 
 1. You can - for now - keep working in /js/kwm.js
 2. Write a function renderTemplate() that receives a **template**, a **container** and an [optional object](https://flexiple.com/optional-parameter-javascript/) **values** as parameters.
