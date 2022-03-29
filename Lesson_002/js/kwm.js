@@ -23,7 +23,7 @@ class kwmJS{
             webRoot: "http://127.0.0.1/git/FH-Hagenberg.CWP4/Lesson_002",
         };
         this.utils = KWM_Utils;
-        this.translator = new KWM_Translator("de", "en", "ru");
+        this.translator = new KWM_Translator("de", "en");
         this.templater = new KWM_Templater(this.options.webRoot+"/templates/");
     }
 

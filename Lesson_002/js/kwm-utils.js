@@ -45,4 +45,9 @@ export default class KWM_Utils{
         }
         return -1;
     }
+
+    static getGetParameters(){
+        //TODO: I need to find a way to get the actual Parameters.
+        return window.location.hash.substr(1).indexOf("?") === -1 ? {} : {"params":true}
+    }
 }

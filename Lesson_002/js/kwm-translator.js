@@ -35,21 +35,13 @@ export default class KWM_Translator{
  ***************************/
 const KWM_Resources = {
     "de": {
-        hello_world: "Hallo Welt",
-        it_is_me: "Ich bin's",
-        my_name_is : "Mein Name ist",
-        age : "Alter"
+        welcome_message: "Willkommen bei kwmJS!",
+        click_me: "Klick mich!",
+        whoops: "Upsi, da ist wohl was schief gegangen!",
     },
     "en": {
-        hello_world: "Hello world",
-        it_is_me: "It's me",
-        my_name_is: "My name is",
-        age: "age",
-    },
-    "ru": {
-        hello_world: "Здравствуйте мир",
-        it_is_me: "Это я",
-        my_name_is: "Меня зовут",
-        age: "Возраст",
+        welcome_message: "Welcome to kwmJS!",
+        click_me: "Click me!",
+        whoops: "Whoopsy Daisy! Something went wrong!",
     }
 };
