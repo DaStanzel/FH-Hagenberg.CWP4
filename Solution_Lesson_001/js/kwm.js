@@ -65,11 +65,11 @@ function renderTemplate(template, container, values={}){
         data_open = [],
         data_close = [];
 
-    let rendered = findEscapings(data, data_open, data_close, "fill", template);
-    rendered = findEscapings(translations, translations_open, translations_close, "translate", rendered);
+    let rendered = findEscapings(data, data_open, data_close, "fill", template, values);
+    rendered = findEscapings(translations, translations_open, translations_close, "translate", rendered, values);
     container.innerHTML = rendered;
 
-    function findEscapings(regex, open, close, mode, template){
+    function findEscapings(regex, open, close, mode, template, values){
         let even = true;
         let rendered = template;
         let result;

@@ -26,15 +26,15 @@ export default class KWM_Templater{
                         data_open = [],
                         data_close = [];
 
-                    let rendered = this.findAndFillEscapings(data, data_open, data_close, "fill", template);
-                    rendered = this.findAndFillEscapings(translations, translations_open, translations_close, "translate", rendered);
+                    let rendered = this.findAndFillEscapings(data, data_open, data_close, "fill", template, values);
+                    rendered = this.findAndFillEscapings(translations, translations_open, translations_close, "translate", rendered, values);
                     container.innerHTML = rendered;
                     resolve();
                 });
         });
     }
 
-    findAndFillEscapings(regex, open, close, mode, template){
+    findAndFillEscapings(regex, open, close, mode, template, values){
         let even = true;
         let rendered = template;
         let result;

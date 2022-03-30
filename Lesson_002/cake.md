@@ -31,7 +31,7 @@ Open /js/kwm-router.js and create a Router-Class (KWM_Router).
 
 ###Develop the functionality of all Routes. They will serve as Views in our MVC setting.
 
-Open /js/kwm-router.js and create a Router-Class (KWM_Router).
+Open /js/kwm-route.js and create a Route-Class (KWM_Router).
    1. In its constructor, you expect to receive slug and init. Make them members of the route.
       1. Slug is a string, defining the path in the application that is bound to this route. Example: "/shop" or just "/" for home.
       2. Init is a function. Init will be executed, when the router activates this route.
@@ -78,7 +78,7 @@ Open /js/kwm-router.js and create a Router-Class (KWM_Router).
    4. Obviously, in this method, the Templater is called to render a Template.
       1. The Templates name is "home". What does that mean? (Go check the Templater-Class and see how that parameter is used. You might need to configure your Framework-Core properly.).
       2. It also provides a Container "kwmJS". Can you find that container in the index.html?
-   5. Once, the Templater is done, there an EventListener seems to be added to "simplebutton". What is Simplebutton? Where does this come from?
+   5. Once, the Templater is done, an EventListener seems to be added to "simplebutton". What is Simplebutton? Where does this come from?
    6. Can you get this Code to work? (Goal: The click-alert is popping up).
 2. Now create your own View (view.shop.js)
    1. Give it the slug "/shop"
