@@ -22,7 +22,7 @@ class kwmJS{
         this.options = {
             appContainer: document.getElementById('kwmJS'),
             debugMode: true,
-            webRoot: "http://127.0.0.1/git/FH-Hagenberg.CWP4.master/Solution_Lesson_002",
+            webRoot: "http://YOURLOCALSERVER/Lesson_003",
         };
         this.utils = KWM_Utils;
         this.translator = new KWM_Translator("de", "en");
