@@ -23,11 +23,11 @@ class kwmJS{
         this.options = {
             appContainer: document.getElementById('kwmJS'),
             debugMode: true,
-            webRoot: "http://YOUR_SERVER/Lesson_004",
+            webRoot: "http:/YourSERVER/Lesson_004",
         };
         this.utils = KWM_Utils;
         this.model = new KWM_Model();
-        this.translator = new KWM_Translator("de", "en");
+        this.translator = new KWM_Translator("en", "de");
         this.templater = new KWM_Templater(this.options.webRoot+"/templates/");
         this.router = new KWM_Router();
 

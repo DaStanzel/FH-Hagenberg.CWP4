@@ -29,9 +29,4 @@ export let view = new KWM_Route("/", async function(){
 
 view.rendering = async function(){
     await kwm.templater.renderTemplate("home", document.getElementById("kwmJS"));
-    await kwm.templater.renderTemplate("partial-a", document.getElementById("partial-a-container"),["fiends", "love", "chicken"]);
-
-    let button = simplebutton.addEventListener("click", function(){
-        alert("test");
-    });
 };
