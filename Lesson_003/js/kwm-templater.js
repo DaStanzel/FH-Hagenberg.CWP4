@@ -40,7 +40,7 @@ export default class KWM_Templater{
         }
         for(let i = 0; i < open.length; i++){
             let toReplace = template.substring(open[i]+3, close[i]);
-            let replacing = mode === "translate" ? translator.translate(toReplace) : values[toReplace];
+            let replacing = mode === "translate" ? kwm.translator.translate(toReplace) : values[toReplace];
             rendered = rendered.replace(template.substring(open[i], close[i]+3), replacing);
         }
         return rendered;
