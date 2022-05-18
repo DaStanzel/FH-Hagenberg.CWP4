@@ -24,6 +24,9 @@ Open /js/kwm-translator.js
    1. In this method, change the currentLangauge of kwm.translator to the according language.
    2. Also, call the changeView() Method of router, to re-render the currently active view.
    3. After that, the method should also call kwm.renderHeader() and kwm.renderFooter(), in order to re-render the header and footer sections.
+   4. Now store that chosen language in your localstorage.
+   5. You knew this was coming: Make sure that the page is rendered in the locally stored language, once you open it again.
+
 
 Open /js/kwm.js
 1. Now use the functionality, you just implemented to create a languageMenu in the container ***#languagemenu***, once the header-template is rendered.
