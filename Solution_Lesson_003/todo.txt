@@ -1,0 +1,6 @@
+--1) cake.md
+--2) Styling fertig
+--3) Vorbereiten Lesson_003 im normalen repository
+4) Slides + Callback / Promise / Async Await Beispiel
+5) Java Übung
+-6) Elearning Eintrag (Nur noch Slides).
