@@ -1,4 +1,5 @@
 <div class="pet-thumbnail" style="background-image: url('<&>picture<&>');">
+    <div class="❤️"></div>
     <span><&>pet_name<&> - <&>age<&></span>
 </div>
 <div class="pet-bio">
