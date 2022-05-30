@@ -11,8 +11,7 @@ export default class KWM_Translator{
     constructor(...languages){
         for(const lng of languages)
             this[lng] = KWM_Resources[lng];
-        this.currentLanguage = kwm.utils.isEmpty(localStorage.language) ? languages[0] : localStorage.language;
-
+        this.currentLanguage = kwm.utils.isEmpty(localStorage.lang) ? languages[0] : localStorage.lang;
     }
 
     translate(key, language = this.currentLanguage){
@@ -21,15 +20,15 @@ export default class KWM_Translator{
 
     createLanguageMenu(container){
         let ul = document.createElement("ul");
-        container.append(ul);
-        for(const key of Object.keys(this)){
-            if(key !== "currentLanguage"){
+        for(const [key] of Object.entries(this)){
+            if(key != "currentLanguage"){
                 let li = document.createElement("li");
-                li.innerText = key;
                 li.addEventListener("click", KWM_Translator.changeLanguage);
+                li.innerText = key.toUpperCase();
                 ul.append(li);
             }
         }
+        container.prepend(ul);
     }
 
     static changeLanguage(){
@@ -37,13 +36,9 @@ export default class KWM_Translator{
         kwm.router.changeView();
         kwm.renderHeader();
         kwm.renderFooter();
-        localStorage.language = this.innerText.toLowerCase();
-
+        localStorage.lang = this.innerText.toLowerCase();
     }
-
 }
-
-
 
 
 

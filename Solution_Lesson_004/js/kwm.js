@@ -23,11 +23,11 @@ class kwmJS{
         this.options = {
             appContainer: document.getElementById('kwmJS'),
             debugMode: true,
-            webRoot: "http://localhost:63342/FH-Hagenberg.CWP4/Lesson_004",
+            webRoot: "http://localhost:63342/FH-Hagenberg.CWP4.master/Solution_Lesson_004",
         };
         this.utils = KWM_Utils;
         this.model = new KWM_Model();
-        this.translator = new KWM_Translator("en", "de");
+        this.translator = new KWM_Translator("de", "en");
         this.templater = new KWM_Templater(this.options.webRoot+"/templates/");
         this.router = new KWM_Router();
 
@@ -41,7 +41,7 @@ class kwmJS{
 
     async renderHeader(){
         await this.templater.renderTemplate("header", document.querySelector("header"));
-        kwm.translator.createLanguageMenu(document.getElementById("languagemenu"));
+        this.translator.createLanguageMenu(document.getElementById("languagemenu"));
     }
 
     async renderFooter(){
